@@ -103,9 +103,20 @@
         handlTextChange: function(e) {
           this.setState({email: e.target.value});
         },
+        handleSubmit: function(e) {
+          e.preventDefault();
+          var author = this.state.author.trim();
+          var email = this.state.email.trim();
+          var text = this.state.text.trim();
+          if (!text || !author || !email) {
+            return;
+          }
+          <!-- TODO: send request to server -->
+          this.setState({author: '', email: '', text: ''});
+        },
         render: function() {
           return (
-            <form className="commentForm">
+            <form className="commentForm" onSubmit={this.handleSubmit}>
               <input
                 type="text"
                 placeholder="Your name"
