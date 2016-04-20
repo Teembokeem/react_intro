@@ -52,6 +52,9 @@
               console.error(this.props.url, status, err.toString());
             }.bind(this)
           });
+        },
+        handleCommentSubmit: function(comment) {
+          <!-- submit to server and refresh list -->
         }
         getInitialState: function() {
           return {data: []};
@@ -66,7 +69,7 @@
               Hello World! This is my CommentBox.
               <h1>Comments</h1>
               <CommentList data={this.props.data} />
-              <CommentForm />
+              <CommentForm onCommentSubmit={this.handleCommentSubmit}/>
             </div>
           );
         }
