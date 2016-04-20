@@ -16,13 +16,17 @@
     <!-- <script type="text/babel" src="scripts/example.js"></script> -->
     <script type="text/babel">
       var Comment = React.createClass({
+        rawMarkup: function() {
+          var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
+          return {} __html: rawmarkup };
+        }
         render: function() {
           return (
             <div className="comment">
               <h2 classname="commentAuthor">
                 {this.props.author}
               </h2>
-              {marked(this.props.children.toString())}
+              <span dangerouslySetInnerHTML={this.rawMarkup()} />
             </div>
           )
         }
