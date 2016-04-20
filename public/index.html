@@ -114,7 +114,7 @@
           if (!text || !author || !email) {
             return;
           }
-          <!-- TODO: send request to server -->
+          this.props.onCommentSubmit({author: author, email: email, text: text});
           this.setState({author: '', email: '', text: ''});
         },
         render: function() {
