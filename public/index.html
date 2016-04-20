@@ -33,6 +33,9 @@
       });
 
       var CommentBox = React.createClass({
+        getInitialState: function() {
+          return {data: []};
+        },
         render: function() {
           return (
             <div className="commentBox">
@@ -73,7 +76,7 @@
       });
 
       ReactDOM.render(
-        <CommentBox data={data} />,
+        <CommentBox url="/api/comments" />,
         document.getElementById('content')
       );
     </script>
