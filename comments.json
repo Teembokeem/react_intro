@@ -2,16 +2,7 @@
     {
         "id": 1388534400000,
         "author": "Pete Hunt",
+        "email": "pete@email.com",
         "text": "Hey there!"
-    },
-    {
-        "id": 1420070400000,
-        "author": "Paul O’Shannessy",
-        "text": "React is *great*!"
-    },
-    {
-        "id": 1461181365287,
-        "author": "hello!",
-        "text": "tim"
     }
 ]
