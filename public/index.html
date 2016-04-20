@@ -77,9 +77,8 @@
           var commentNodes = this.props.data.map(function(comment) {
             return (
               <Comment author={comment.author} key={comment.id}>
-                {comment.email}
+                @ {comment.email} says:
                 {comment.text}
-                }
               </Comment>
             );
           });
@@ -92,12 +91,41 @@
       });
 
       var CommentForm = React.createClass({
+        getInitialState: function() {
+          return {author: '', email: '', text: ''};
+        },
+        handleAuthorChange: function(e) {
+          this.setState({author: e.target.value});
+        },
+        handleEmailChange: function(e) {
+          this.setState({email: e.target.value});
+        },
+        handlTextChange: function(e) {
+          this.setState({email: e.target.value});
+        },
         render: function() {
           return (
             <form className="commentForm">
-              <input type="text" placeholder="Your name" />
-              <input type="text" placeholder="Your email" />
-              <input type="text" placeholder="One piece of advice, a good quote, or just a hello" />
+              <input
+                type="text"
+                placeholder="Your name"
+                value={this.state.author}
+                onChange={this.handleAuthorChange}
+              />
+              <input
+                type="text"
+                placeholder="Your email"
+                value={this.state.email}
+                onChange={this.handleEmailChange}
+              />
+              <input
+                type="text"
+                placeholder="One piece of advice,
+                  a good quote,
+                  or just a hello"
+                value={this.state.text}
+                onChange={this.handleTextChange}
+              />
               <input type="submit" value="Post" />
             </form>
           );
