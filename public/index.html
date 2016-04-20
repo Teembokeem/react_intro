@@ -54,6 +54,10 @@
           });
         },
         handleCommentSubmit: function(comment) {
+          var comments = this.state.data;
+          comment.id = Date.now();
+          var newcomments = comments.concat([comment]);
+          this.setState({data:newComments});
           $.ajax({
             url: this.props.url,
             dataType: 'json',
@@ -63,6 +67,7 @@
               this.setstate({data: data});
             }.bind(this),
             error: function(xhr, status, err) {
+              this.setstate({data: comments});
               console.error(this.props.url, status, err.toString());
             }.bind(this)
           });
