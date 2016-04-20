@@ -58,6 +58,7 @@ app.post('/api/comments', function(req, res) {
     var newComment = {
       id: Date.now(),
       author: req.body.author,
+      email: req.body.email,
       text: req.body.text,
     };
     comments.push(newComment);
